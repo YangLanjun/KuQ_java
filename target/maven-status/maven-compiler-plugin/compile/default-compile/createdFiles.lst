@@ -1,0 +1,5 @@
+cn\yanglj65\Alibaba.class
+cn\yanglj65\entity\User.class
+cn\yanglj65\util\HibernateUtil.class
+cn\yanglj65\service\UserService.class
+cn\yanglj65\dao\UserDao.class

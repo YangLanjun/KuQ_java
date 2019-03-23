@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="demo:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/demo_jar</output-path>
+    <root id="archive" name="demo.jar">
+      <element id="module-output" name="demo" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sobte/cqp/jcq-coolq/1.2.7/jcq-coolq-1.2.7.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

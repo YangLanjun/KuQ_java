@@ -1,0 +1,27 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"-->
+        <!--"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">-->
+
+<!--&lt;!&ndash;-->
+	<!--1.通过映射文件可以告诉Hibernate，User类被持久化为数据库中的User表。-->
+	<!--2.根据映射文件，Hibernate可以生成足够的信息以产生所有的SQL语句，即User类的实例进行增删改查所需的SQL语句。-->
+
+ <!--&ndash;&gt;-->
+
+<!--<hibernate-mapping>-->
+
+    <!--&lt;!&ndash; name指定持久化类的类名，table指定数据表的表名 &ndash;&gt;-->
+    <!--<class name="cn.yanglj65.entity.User" table="user_t">-->
+        <!--&lt;!&ndash; 将User类中的id映射为数据表USER中的主键USER_ID &ndash;&gt;-->
+        <!--<id name="id" type="java.lang.Integer" column="id">-->
+            <!--&lt;!&ndash; 指定主键的生成方式 &ndash;&gt;-->
+            <!--<generator class="increment"/>-->
+        <!--</id>-->
+
+        <!--&lt;!&ndash; 映射User类的其他普通属性 &ndash;&gt;-->
+        <!--<property name="QQ" type="java.lang.String" column="QQ" length="20"/>-->
+        <!--<property name="status" type="java.lang.String" column="status" />-->
+        <!--<property name="cookie" type="java.lang.String" column="cookie"/>-->
+    <!--</class>-->
+
+<!--</hibernate-mapping>-->
