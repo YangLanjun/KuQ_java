@@ -41,10 +41,10 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
         // 开始模拟发送消息
         // 模拟私聊消息
         // 开始模拟QQ用户发送消息，以下QQ全部编造，请勿添加
-   //     demo.privateMsg(0, 10001, 1069148429, "你好", 0);
-   //     demo.privateMsg(0, 10001, 1069148429, "cookie pgv_pvi=5316263936; RK=aYDFdwZ1TA; ptcz=5e2bd8098c43d506fcc6f7829790a14242abbec96b5f8ff3ec6082107a8b83e6; pgv_pvid=127751642; tvfe_boss_uuid=de61671ea68fd170; gaduid=5be81f7736450; o_cookie=1069148429; eas_sid=E1l5Z4d7E1i3W1v9r3x9x1J0o6; same_pc=%7B%7D; uid=203308958; PHPSESSID=k4f9ben2q8rc30c0nn6vv6ouv0; pgv_si=s9783010304; _qpsvr_localtk=0.4918206473557669; ptisp=edu", 0);
-        demo.privateMsg(0, 10001, 1069148429, "cookie _ntes_nnid=d52c1b69384fc2cc50ab350d44c8d00d,1536907116580; _ntes_nuid=d52c1b69384fc2cc50ab350d44c8d00d; vinfo_n_f_l_n3=0f81c88eda00fb9a.1.2.1546069515306.1546166748022.1546694280250; usertrack=CrHuc1xCmKi9snyOAxpbAg==; KAOLA_ACC=cd614f05cf6b3fcf2591e4b992f91789@tencent.163.com; hb_MA-9ADA-91BF1A6C9E06_source=gzgame.campus.163.com; mp_MA-9ADA-91BF1A6C9E06_hubble=%7B%22sessionReferrer%22%3A%20%22https%3A%2F%2Fcampus.163.com%2F%22%2C%22updatedTime%22%3A%201552470001885%2C%22sessionStartTime%22%3A%201552470001872%2C%22sendNumClass%22%3A%20%7B%22allNum%22%3A%202%2C%22errSendNum%22%3A%200%7D%2C%22deviceUdid%22%3A%20%224e867c3b-ee9e-4ddb-9bcd-c087d1937d13%22%2C%22persistedTime%22%3A%201552470001868%2C%22LASTEVENT%22%3A%20%7B%22eventId%22%3A%20%22da_screen%22%2C%22time%22%3A%201552470001886%7D%2C%22sessionUuid%22%3A%20%22af961438-bc30-4c61-b46f-c099baa2192c%22%7D; NTES_CMT_USER_INFO=269214670%7C%E6%9C%89%E6%80%81%E5%BA%A6%E7%BD%91%E5%8F%8B0g2_fe%7C%7Cfalse%7CbTE3NjY1MDcwMTg5QDE2My5jb20%3D; JSESSIONID=aaaqoNdSmREh89_rPsQMw; httpOnly; NTES_SESS=KJw1OwKQKbZ0Hbdtl2eiW72Q7JLUiTdJsb0nAHqMDAJcP_OdPs6CJlBr4Cf9CiL3ONPSqZNzykpHOobROZPkvUczwgBn1doJq81xvjQlDc2BwXOAqIVsNd41AhbQC914vrSyBPXF7kU1B4pbXTAvvsPDqprBblQUu2PRRKPwg1qBXlMCjKWcujb_O6k1wCyPW8vWRfF3ldcfSHZTGMIpcFHQj; S_INFO=1553340215|0|3&80##|m17665070189; P_INFO=m17665070189@163.com|1553340215|0|other|00&99|gud&1552652553&other#gud&440100#10#0#0|176189&1|urs|17665070189@163.com; ANTICSRF=a67e41e92349f0aa8c696e4b80c97364", 0);
-       // demo.privateMsg(0, 10001, 1069148429, "腾讯状态", 0);
+        // demo.privateMsg(0, 10001, 1069148429, "你好", 0);
+        //demo.privateMsg(0, 10001, 1069148429, "cookie null", 0);
+        //demo.privateMsg(0, 10001, 1069148429, "cookie _ntes_nnid=d52c1b69384fc2cc50ab350d44c8d00d,1536907116580; _ntes_nuid=d52c1b69384fc2cc50ab350d44c8d00d; vinfo_n_f_l_n3=0f81c88eda00fb9a.1.2.1546069515306.1546166748022.1546694280250; usertrack=CrHuc1xCmKi9snyOAxpbAg==; KAOLA_ACC=cd614f05cf6b3fcf2591e4b992f91789@tencent.163.com; hb_MA-9ADA-91BF1A6C9E06_source=gzgame.campus.163.com; mp_MA-9ADA-91BF1A6C9E06_hubble=%7B%22sessionReferrer%22%3A%20%22https%3A%2F%2Fcampus.163.com%2F%22%2C%22updatedTime%22%3A%201552470001885%2C%22sessionStartTime%22%3A%201552470001872%2C%22sendNumClass%22%3A%20%7B%22allNum%22%3A%202%2C%22errSendNum%22%3A%200%7D%2C%22deviceUdid%22%3A%20%224e867c3b-ee9e-4ddb-9bcd-c087d1937d13%22%2C%22persistedTime%22%3A%201552470001868%2C%22LASTEVENT%22%3A%20%7B%22eventId%22%3A%20%22da_screen%22%2C%22time%22%3A%201552470001886%7D%2C%22sessionUuid%22%3A%20%22af961438-bc30-4c61-b46f-c099baa2192c%22%7D; NTES_CMT_USER_INFO=269214670%7C%E6%9C%89%E6%80%81%E5%BA%A6%E7%BD%91%E5%8F%8B0g2_fe%7C%7Cfalse%7CbTE3NjY1MDcwMTg5QDE2My5jb20%3D; JSESSIONID=aaaqoNdSmREh89_rPsQMw; httpOnly; NTES_SESS=KJw1OwKQKbZ0Hbdtl2eiW72Q7JLUiTdJsb0nAHqMDAJcP_OdPs6CJlBr4Cf9CiL3ONPSqZNzykpHOobROZPkvUczwgBn1doJq81xvjQlDc2BwXOAqIVsNd41AhbQC914vrSyBPXF7kU1B4pbXTAvvsPDqprBblQUu2PRRKPwg1qBXlMCjKWcujb_O6k1wCyPW8vWRfF3ldcfSHZTGMIpcFHQj; S_INFO=1553340215|0|3&80##|m17665070189; P_INFO=m17665070189@163.com|1553340215|0|other|00&99|gud&1552652553&other#gud&440100#10#0#0|176189&1|urs|17665070189@163.com; ANTICSRF=a67e41e92349f0aa8c696e4b80c97364", 0);
+        demo.privateMsg(0, 10011, 1069148429, "腾讯状态", 0);
         demo.privateMsg(0, 10001, 1069148429, "网易状态", 0);
 
 //        demo.privateMsg(0, 10002, 2222222224L, "喵呜喵呜喵呜", 0);
@@ -117,6 +117,22 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
      */
     public int enable() {
         enable = true;
+        Thread thread=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true){
+                    String status = UserService.getTencentStatus(String.valueOf(masterQQ));
+                    CQ.sendPrivateMsg(masterQQ, "腾讯应聘状态：" + status);
+                    try {
+                        Thread.sleep(300000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        CQ.sendPrivateMsg(masterQQ, "轮询线程出现异常");
+                    }
+                }
+            }
+        });
+        thread.start();
         return 0;
     }
 
@@ -154,7 +170,7 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
             return MSG_IGNORE;
         }
         if (msg.equals("腾讯状态") || msg.equals("状态腾讯")||msg.equals("腾讯")) {
-            String status = UserService.getTecentStatus(String.valueOf(fromQQ));
+            String status = UserService.getTencentStatus(String.valueOf(fromQQ));
             CQ.sendPrivateMsg(fromQQ, "腾讯应聘状态：" + status);
             return MSG_IGNORE;
         }
@@ -191,7 +207,7 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
     public int groupMsg(int subType, int msgId, long fromGroup, long fromQQ, String fromAnonymous, String msg,
                         int font) {
         // 如果消息来自匿名者
-        if (fromQQ == 80000000L && !fromAnonymous.equals("")) {
+        if (fromQQ == masterQQ && !fromAnonymous.equals("")) {
             // 将匿名用户信息放到 anonymous 变量中
             Anonymous anonymous = CQ.getAnonymous(fromAnonymous);
         }
