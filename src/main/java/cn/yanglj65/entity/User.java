@@ -1,7 +1,5 @@
 package cn.yanglj65.entity;
 
-import org.hibernate.annotations.Generated;
-
 import javax.persistence.*;
 
 @Table(name = "user_t")
@@ -16,6 +14,16 @@ public class User {
     private String cookie;
     @Column(name = "status")
     private String status;
+    @Column(name = "t_cookie")
+    private String tCookie;
+
+    public String gettCookie() {
+        return tCookie;
+    }
+
+    public void settCookie(String tCookie) {
+        this.tCookie = tCookie;
+    }
 
     public int getId() {
         return id;

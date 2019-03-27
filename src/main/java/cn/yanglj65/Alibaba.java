@@ -117,18 +117,16 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
      */
     public int enable() {
         enable = true;
-        Thread thread=new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(true){
-                    String status = UserService.getTencentStatus(String.valueOf(masterQQ));
-                    CQ.sendPrivateMsg(masterQQ, "腾讯应聘状态：" + status);
-                    try {
-                        Thread.sleep(300000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        CQ.sendPrivateMsg(masterQQ, "轮询线程出现异常");
-                    }
+        Thread thread = new Thread(() -> {
+            while (true) {
+                String status = UserService.getTencentStatus(String.valueOf(masterQQ));
+                CQ.sendPrivateMsg(masterQQ, "腾讯应聘状态：" + status);
+                try {
+                    Thread.sleep(300000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    CQ.sendPrivateMsg(masterQQ, "轮询线程出现异常");
+                    break;
                 }
             }
         });
@@ -169,21 +167,44 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
             CQ.sendPrivateMsg(fromQQ, "[CQ:emoji,id=128512]" + msg + "\n来自Java插件");
             return MSG_IGNORE;
         }
-        if (msg.equals("腾讯状态") || msg.equals("状态腾讯")||msg.equals("腾讯")) {
+        if (msg.equals("腾讯状态") || msg.equals("状态腾讯") || msg.equals("腾讯")) {
             String status = UserService.getTencentStatus(String.valueOf(fromQQ));
             CQ.sendPrivateMsg(fromQQ, "腾讯应聘状态：" + status);
             return MSG_IGNORE;
         }
-        if (msg.equals("网易状态") || msg.equals("状态网易")||msg.equals("网易")) {
+        if (msg.equals("网易状态") || msg.equals("状态网易") || msg.equals("网易")) {
             String status = UserService.getNetEaseStatus(String.valueOf(fromQQ));
             CQ.sendPrivateMsg(fromQQ, "网易应聘状态：" + status);
+            return MSG_IGNORE;
+        }
+        if (msg.equals("网易cookie") || msg.equals("cookie网易")) {
+            String cookie = UserService.getCookie(String.valueOf(fromQQ));
+            CQ.sendPrivateMsg(fromQQ, "网易cookie：" + cookie);
+            return MSG_IGNORE;
+        }
+        if (msg.equals("腾讯cookie") || msg.equals("cookie腾讯")) {
+            String cookie = UserService.getTCookie(String.valueOf(fromQQ));
+            CQ.sendPrivateMsg(fromQQ, "腾讯cookie：" + cookie);
             return MSG_IGNORE;
         }
         if (msg.length() > 7) {
             if (msg.substring(0, 7).equals("cookie ") && fromQQ == masterQQ) {
                 String cookie = msg.substring(7, msg.length());
                 UserService.changeCookie(cookie, String.valueOf(fromQQ));
-                CQ.sendPrivateMsg(fromQQ, "更换cookie成功");
+                CQ.sendPrivateMsg(fromQQ, "更换网易cookie成功");
+                String status = UserService.getNetEaseStatus(String.valueOf(fromQQ));
+                CQ.sendPrivateMsg(fromQQ, "网易应聘状态：" + status);
+                return MSG_IGNORE;
+            }
+        }
+
+        if (msg.length() > 8) {
+            if (msg.substring(0, 8).equals("tcookie ") && fromQQ == masterQQ) {
+                String cookie = msg.substring(8, msg.length());
+                UserService.changeTCookie(cookie, String.valueOf(fromQQ));
+                CQ.sendPrivateMsg(fromQQ, "更换腾讯cookie成功");
+                String status = UserService.getTencentStatus(String.valueOf(fromQQ));
+                CQ.sendPrivateMsg(fromQQ, "腾讯应聘状态：" + status);
                 return MSG_IGNORE;
             }
         }

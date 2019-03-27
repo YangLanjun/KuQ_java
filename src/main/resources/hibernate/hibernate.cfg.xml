@@ -20,7 +20,7 @@
         <!-- 配置数据库密码 -->
         <property name="hibernate.connection.password">a1069148429.</property>
         <!-- 配置JDBC内置连接池 -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">100</property>
         <!-- 配置数据库方言 -->
         <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <!-- 输出运行时生成的SQL语句 -->

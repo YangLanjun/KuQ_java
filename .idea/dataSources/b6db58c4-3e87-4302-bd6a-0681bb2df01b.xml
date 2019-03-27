@@ -941,10 +941,15 @@
     </column>
     <column id="236" parent="232" name="cookie">
       <Position>4</Position>
-      <DataType>varchar(1023)|0s</DataType>
+      <DataType>varchar(2047)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="237" parent="232" name="PRIMARY">
+    <column id="237" parent="232" name="t_cookie">
+      <Position>5</Position>
+      <DataType>varchar(2047)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="238" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

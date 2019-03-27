@@ -24,8 +24,10 @@ public class UserService {
     private static UserDao userDao = new UserDao();
 
     public static String getTencentStatus(String fromQQ) {
+        User user;
+        user = userDao.findByQQ(fromQQ);
         try {
-            Document document = Jsoup.connect("http://join.qq.com/center.php").header("cookie", "pgv_pvid=1014867852; RK=sZCNdwZVFC; ptcz=a0156ccc62c2530d5ff3e7a5092f95f92cd46406788ace683c7021fcf45c7566; pgv_pvi=1989017600; tvfe_boss_uuid=9ef5ff34168ec4a1; PHPSESSID=g1660ct47pe75uo9ksgbp465u6; pgv_si=s8305329152; _qpsvr_localtk=0.41264975731310094; ptisp=edu").get();
+            Document document = Jsoup.connect("http://join.qq.com/center.php").header("cookie", user.gettCookie()).get();
             Element element = document.getElementsByClass("item mt45").get(0).getAllElements().get(0);
             String status = element.text();
             //user.setStatus(status);
@@ -109,4 +111,17 @@ public class UserService {
         userDao.update(user);
     }
 
+    public static void changeTCookie(String cookie, String fromQQ) {
+        User user = userDao.findByQQ(fromQQ);
+        user.settCookie(cookie);
+        userDao.update(user);
+    }
+    public static String getCookie(String fromQQ) {
+        User user = userDao.findByQQ(fromQQ);
+        return user.getCookie();
+    }
+    public static String getTCookie(String fromQQ) {
+        User user = userDao.findByQQ(fromQQ);
+        return user.gettCookie();
+    }
 }
