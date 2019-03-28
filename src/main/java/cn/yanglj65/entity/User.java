@@ -10,19 +10,25 @@ public class User {
     private int id;
     @Column(name = "qq")
     private String QQ;
-    @Column(name = "cookie")
-    private String cookie;
-    @Column(name = "status")
-    private String status;
+    @Column(name = "n_cookie")
+    private String NCookie;
+    @Column(name = "n_status")
+    private String NStatus;
     @Column(name = "t_cookie")
-    private String tCookie;
+    private String TCookie;
+    @Column(name="t_status")
+    private String TStatus;
+    @Column(name="a_cookie")
+    private String ACookie;
+    @Column(name = "a_status")
+    private String AStatus;
 
-    public String gettCookie() {
-        return tCookie;
+    public String getTCookie() {
+        return TCookie;
     }
 
-    public void settCookie(String tCookie) {
-        this.tCookie = tCookie;
+    public void setTCookie(String TCookie) {
+        this.TCookie = TCookie;
     }
 
     public int getId() {
@@ -41,19 +47,43 @@ public class User {
         this.QQ = QQ;
     }
 
-    public String getCookie() {
-        return cookie;
+    public String getNCookie() {
+        return NCookie;
     }
 
-    public void setCookie(String cookie) {
-        this.cookie = cookie;
+    public void setNCookie(String NCookie) {
+        this.NCookie = NCookie;
     }
 
-    public String getStatus() {
-        return status;
+    public String getNStatus() {
+        return NStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setNStatus(String NStatus) {
+        this.NStatus = NStatus;
+    }
+
+    public String getTStatus() {
+        return TStatus;
+    }
+
+    public void setTStatus(String TStatus) {
+        this.TStatus = TStatus;
+    }
+
+    public String getACookie() {
+        return ACookie;
+    }
+
+    public void setACookie(String ACookie) {
+        this.ACookie = ACookie;
+    }
+
+    public String getAStatus() {
+        return AStatus;
+    }
+
+    public void setAStatus(String AStatus) {
+        this.AStatus = AStatus;
     }
 }

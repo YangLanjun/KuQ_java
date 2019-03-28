@@ -934,12 +934,12 @@
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="232" name="status">
+    <column id="235" parent="232" name="n_status">
       <Position>3</Position>
       <DataType>varchar(511)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="232" name="cookie">
+    <column id="236" parent="232" name="n_cookie">
       <Position>4</Position>
       <DataType>varchar(2047)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -949,7 +949,22 @@
       <DataType>varchar(2047)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="238" parent="232" name="PRIMARY">
+    <column id="238" parent="232" name="t_status">
+      <Position>6</Position>
+      <DataType>varchar(511)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="232" name="a_status">
+      <Position>7</Position>
+      <DataType>varchar(511)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="232" name="a_cookie">
+      <Position>8</Position>
+      <DataType>varchar(2047)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="241" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
