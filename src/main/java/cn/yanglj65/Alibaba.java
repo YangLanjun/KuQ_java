@@ -44,11 +44,11 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
         // demo.privateMsg(0, 10001, 1069148429, "你好", 0);
         //demo.privateMsg(0, 10001, 1069148429, "cookie null", 0);
         //demo.privateMsg(0, 10001, 1069148429, "acookie _ntes_nnid=d52c1b69384fc2cc50ab350d44c8d00d,1536907116580; _ntes_nuid=d52c1b69384fc2cc50ab350d44c8d00d; vinfo_n_f_l_n3=0f81c88eda00fb9a.1.2.1546069515306.1546166748022.1546694280250; usertrack=CrHuc1xCmKi9snyOAxpbAg==; KAOLA_ACC=cd614f05cf6b3fcf2591e4b992f91789@tencent.163.com; hb_MA-9ADA-91BF1A6C9E06_source=gzgame.campus.163.com; mp_MA-9ADA-91BF1A6C9E06_hubble=%7B%22sessionReferrer%22%3A%20%22https%3A%2F%2Fcampus.163.com%2F%22%2C%22updatedTime%22%3A%201552470001885%2C%22sessionStartTime%22%3A%201552470001872%2C%22sendNumClass%22%3A%20%7B%22allNum%22%3A%202%2C%22errSendNum%22%3A%200%7D%2C%22deviceUdid%22%3A%20%224e867c3b-ee9e-4ddb-9bcd-c087d1937d13%22%2C%22persistedTime%22%3A%201552470001868%2C%22LASTEVENT%22%3A%20%7B%22eventId%22%3A%20%22da_screen%22%2C%22time%22%3A%201552470001886%7D%2C%22sessionUuid%22%3A%20%22af961438-bc30-4c61-b46f-c099baa2192c%22%7D; NTES_CMT_USER_INFO=269214670%7C%E6%9C%89%E6%80%81%E5%BA%A6%E7%BD%91%E5%8F%8B0g2_fe%7C%7Cfalse%7CbTE3NjY1MDcwMTg5QDE2My5jb20%3D; JSESSIONID=aaaqoNdSmREh89_rPsQMw; httpOnly; NTES_SESS=KJw1OwKQKbZ0Hbdtl2eiW72Q7JLUiTdJsb0nAHqMDAJcP_OdPs6CJlBr4Cf9CiL3ONPSqZNzykpHOobROZPkvUczwgBn1doJq81xvjQlDc2BwXOAqIVsNd41AhbQC914vrSyBPXF7kU1B4pbXTAvvsPDqprBblQUu2PRRKPwg1qBXlMCjKWcujb_O6k1wCyPW8vWRfF3ldcfSHZTGMIpcFHQj; S_INFO=1553340215|0|3&80##|m17665070189; P_INFO=m17665070189@163.com|1553340215|0|other|00&99|gud&1552652553&other#gud&440100#10#0#0|176189&1|urs|17665070189@163.com; ANTICSRF=a67e41e92349f0aa8c696e4b80c97364", 0);
-       UserService.AlibabaLogin(null);
-       //  demo.privateMsg(0, 10201, 1069148429, "acookie null", 0);
-       //  demo.privateMsg(0, 10011, 1069148429, "腾讯状态", 0);
-       // demo.privateMsg(0, 10001, 1069148429, "网易状态", 0);
-       // demo.privateMsg(0, 10101, 1069148429, "阿里状态", 0);
+      // UserService.AlibabaLogin(null);
+       demo.privateMsg(0, 10201, 1069148429, "acookie JSESSIONID=FFYJR3BV-MU24QHA25XVH47DFRPNT3-TH6DMSTJ-P17N; UM_distinctid=169c44ab838123-0542725ddcf8b6-7a1437-1fa400-169c44ab83ab7; cna=IuOgE6e4NSMCAW5AV43D+RdB; cookie2=185db5f55dc25a14d1928660b53e54a1; t=9aa918144ae5d5a584cd1d6ebfb1ffe2; _tb_token_=eeaed1e9363ef; _hvn_login=0; csg=fa58207b; tmp0=owrl4ob19vUBkLFmiZ8EVBfn6cXLyYNxd7Im54sa0%2FqkJw8H8%2B9daMcR6xsdaJ0sfbItaPhyvyitWGDyEbN3XWjwdReiaZmCNQaIHnJaAlIPVxSnH0iKbNi5ApykAbnTssT8slYflQCx1ieXVoullxZBL21Vbdr70J05HY7zGX%2FFxF5IkrpC0J9rLAI6DuUU60CozOHFMx0ra5RW8Dr28KWK3GtOPaXL9LW3EmdgLWLUc7YG3ng32w8vah7XByoh; CNZZDATA1000004808=683793839-1553746046-https%253A%252F%252Fcampus.alibaba.com%252F%7C1553778451; isg=BMDAv1H0iB8_DXQDUIF9JT6hkU78CfOeHF1iqjpTPVtutWDf41kGo5eXz13QHlzr; l=bBrl-nBnvmkqLF6tBOCanurza77OSIRYYuPzaNbMi_5ZO6TstMWOl9e5dF96Vj5RsVLB402lRpJ9-etkZ", 0);
+       demo.privateMsg(0, 10011, 1069148429, "腾讯状态", 0);
+       demo.privateMsg(0, 10001, 1069148429, "网易状态", 0);
+       demo.privateMsg(0, 10101, 1069148429, "阿里状态", 0);
 //        demo.privateMsg(0, 10002, 2222222224L, "喵呜喵呜喵呜", 0);
 //        demo.privateMsg(0, 10003, 2111111334L, "可以给我你的微信吗", 0);
 //        demo.privateMsg(0, 10004, 3111111114L, "今天天气真好", 0);
@@ -212,6 +212,13 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
             CQ.sendPrivateMsg(fromQQ, "[CQ:emoji,id=128512]" + msg + "\n来自Java插件");
             return MSG_IGNORE;
         }
+        if (msg.equals("注册")) {
+            String reply=UserService.register(String.valueOf(fromQQ));
+            CQ.sendPrivateMsg(fromQQ, reply);
+        }
+        if (msg.equals("注册说明")) {
+            String reply="发送 注册 来成为用户，注册后使用acookie,ncookie,tcookie设置不同公司的cookie";
+        }
         if (msg.equals("状态")) {
             String status = UserService.getTencentStatus(String.valueOf(fromQQ));
             CQ.sendPrivateMsg(fromQQ, "腾讯应聘状态：" + status);
@@ -282,7 +289,7 @@ public class Alibaba extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
                 String cookie = msg.substring(8, msg.length());
                 UserService.changeACookie(cookie, String.valueOf(fromQQ));
                 CQ.sendPrivateMsg(fromQQ, "更换阿里cookie成功");
-                String status = UserService.getTencentStatus(String.valueOf(fromQQ));
+                String status = UserService.getAlibabaStatus(String.valueOf(fromQQ));
                 CQ.sendPrivateMsg(fromQQ, "阿里应聘状态：" + status);
                 return MSG_IGNORE;
             }

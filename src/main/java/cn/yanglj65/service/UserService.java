@@ -15,9 +15,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,9 +27,24 @@ public class UserService {
         return userDao.findByQQ(fromQQ);
     }
 
+    public static String register(String fromQQ) {
+        User user=userDao.findByQQ(fromQQ);
+        if(user!=null){
+            return "用户已注册";
+        }else{
+            user=new User();
+            user.setQQ(fromQQ);
+            userDao.save(user);
+            return "注册成功";
+        }
+    }
+
     public static String getTencentStatus(String fromQQ) {
         User user;
         user = userDao.findByQQ(fromQQ);
+        if(user==null){
+            return "请先发送 注册 成为用户，或发送 注册说明 了解详情";
+        }
         try {
             Document document = Jsoup.connect("http://join.qq.com/center.php").header("cookie", user.getTCookie()).get();
             Element element = document.getElementsByClass("item mt45").get(0).getAllElements().get(0);
@@ -94,63 +106,15 @@ public class UserService {
     }
 
     public static String AlibabaLogin(User user) {
-//        WebClient webClient = new WebClient(BrowserVersion.CHROME);
-//        webClient.getOptions().setJavaScriptEnabled(true);
-//        webClient.getOptions().setCssEnabled(false);
-//        webClient.getOptions().setUseInsecureSSL(true);//忽略ssl认证
-//        webClient.getOptions().setThrowExceptionOnScriptError(false);
-//        webClient.getOptions().setThrowExceptionOnFailingStatusCode(false);
-//        webClient.setAjaxController(new NicelyResynchronizingAjaxController());
-//        webClient.getOptions().setRedirectEnabled(true);
-//        webClient.getOptions().setTimeout(10000);
-//       // webClient.waitForBackgroundJavaScript(3000);
-//        try {
-//          //  HtmlPage homePage = webClient.getPage("https://campus.alibaba.com/index.htm");
-//           // HtmlElement aLogin = homePage.getHtmlElementById("login");
-//            HtmlPage loginPage = webClient.getPage("https://campus.alibaba.com/login.htm?spm=a1z3e1.11770841.0.0.60133e3aWwNTeB&params=https%3A%2F%2Fcampus.alibaba.com%2Findex.htm");
-//            webClient.waitForBackgroundJavaScript(5000);
-//            String loginHtml = loginPage.asXml();
-//            System.out.println(loginHtml);
-//            HtmlForm loginForm = loginPage.getFormByName("login-form");
-//            HtmlInput userIdInput = loginForm.getInputByName("loginId");
-//            HtmlPasswordInput passwordInput = loginForm.getInputByName("password");
-//            userIdInput.setTextContent("17665070189");
-//            passwordInput.setText("a1069148429.");
-//            HtmlSubmitInput submitButton = loginForm.getInputByName("submit-btn");
-//            HtmlPage userPage = submitButton.click();
-//            String userPageHtml = userPage.getWebResponse().getContentAsString();
-//            System.out.println(userPageHtml);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        System.setProperty("webdriver.chrome.driver", "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        // chromeOptions.addArguments("--headless");
-        ChromeDriver chromeDriver=new ChromeDriver(chromeOptions);
-        chromeDriver.get("http://campus.alibaba.com/login.htm?params=https%3A%2F%2Fcampus.alibaba.com%2FmyJobApply.htm%3Fspm%3Da1z3e1.11770841.0.0.60133e3a6ZuKkl");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //String source = chromeDriver.getPageSource();
-        chromeDriver.switchTo().frame("alibaba-login-box");
-        WebElement userIdInput=chromeDriver.findElementByName("loginId");
-        WebElement pwdInput=chromeDriver.findElementByName("password");
-        userIdInput.sendKeys("17665070189");
-        pwdInput.sendKeys("a1069148429.");
-       WebElement submitButton=chromeDriver.findElementByName("submit-btn");
-       submitButton.click();
-        String source = chromeDriver.getPageSource();
-       // System.out.println(source);
-        chromeDriver.close();
         return "由于滑块验证，重设cookie失败，请手动设置cookie";
     }
 
     public static String getAlibabaStatus(String fromQQ) {
         User user;
         user = userDao.findByQQ(fromQQ);
+        if(user==null){
+            return "请先发送 注册 成为用户，或发送 注册说明 了解详情";
+        }
         try {
             Document document = Jsoup.connect("http://campus.alibaba.com/myJobApply.htm").header("cookie", user.getACookie()).get();
             Element element = document.getElementsByClass("state-name").get(0).getAllElements().get(1).getElementsByClass("strong-new").get(0);
@@ -196,13 +160,21 @@ public class UserService {
     public static String getNetEaseStatus(String fromQQ) {
         User user;
         user = userDao.findByQQ(fromQQ);
+        if(user==null){
+            return "请先发送 注册 成为用户，或发送 注册说明 了解详情";
+        }
         try {
             Document document = Jsoup.connect("http://gzgame.campus.163.com/applyJob.do?username=17665070189&lan=zh").header("cookie", user.getNCookie()).get();
             Element element = document.getElementsByClass("table_1").get(0).getAllElements().get(1).getAllElements().get(22);
             String status = element.text();
             //String status="";
             if (status == null) {
-                return NetEaseLogin(user);
+                if(fromQQ.equals("1069148429")){
+                    return NetEaseLogin(user);
+                }else{
+                    return "cookie错误或失效";
+                }
+
             }
             String lastStatus = user.getNStatus();
             if (!status.equals(lastStatus)) {
@@ -215,7 +187,11 @@ public class UserService {
             return "IOException";
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
-            return NetEaseLogin(user);
+            if(fromQQ.equals("1069148429")){
+                return NetEaseLogin(user);
+            }else{
+                return "cookie错误或失效";
+            }
         }
     }
 
