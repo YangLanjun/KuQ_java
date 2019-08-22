@@ -15,6 +15,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,12 +28,14 @@ public class UserService {
         return userDao.findByQQ(fromQQ);
     }
 
+    public static boolean statusHBChanged = false;
+
     public static String register(String fromQQ) {
-        User user=userDao.findByQQ(fromQQ);
-        if(user!=null){
+        User user = userDao.findByQQ(fromQQ);
+        if (user != null) {
             return "用户已注册";
-        }else{
-            user=new User();
+        } else {
+            user = new User();
             user.setQQ(fromQQ);
             userDao.save(user);
             return "注册成功";
@@ -42,7 +45,7 @@ public class UserService {
     public static String getTencentStatus(String fromQQ) {
         User user;
         user = userDao.findByQQ(fromQQ);
-        if(user==null){
+        if (user == null) {
             return "请先发送 注册 成为用户，或发送 注册说明 了解详情";
         }
         try {
@@ -112,7 +115,7 @@ public class UserService {
     public static String getAlibabaStatus(String fromQQ) {
         User user;
         user = userDao.findByQQ(fromQQ);
-        if(user==null){
+        if (user == null) {
             return "请先发送 注册 成为用户，或发送 注册说明 了解详情";
         }
         try {
@@ -151,7 +154,7 @@ public class UserService {
         if (!cookie.equals("IOException")) {
             user.setNCookie(cookie);
             userDao.update(user);
-            return "已重新设置网易失效的cookie";
+            return user.getNStatus();
         } else {
             return "cookie获取异常，请手动检查";
         }
@@ -160,7 +163,7 @@ public class UserService {
     public static String getNetEaseStatus(String fromQQ) {
         User user;
         user = userDao.findByQQ(fromQQ);
-        if(user==null){
+        if (user == null) {
             return "请先发送 注册 成为用户，或发送 注册说明 了解详情";
         }
         try {
@@ -169,9 +172,9 @@ public class UserService {
             String status = element.text();
             //String status="";
             if (status == null) {
-                if(fromQQ.equals("1069148429")){
+                if (fromQQ.equals("1069148429")) {
                     return NetEaseLogin(user);
-                }else{
+                } else {
                     return "cookie错误或失效";
                 }
 
@@ -187,9 +190,9 @@ public class UserService {
             return "IOException";
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
-            if(fromQQ.equals("1069148429")){
+            if (fromQQ.equals("1069148429")) {
                 return NetEaseLogin(user);
-            }else{
+            } else {
                 return "cookie错误或失效";
             }
         }
@@ -226,5 +229,31 @@ public class UserService {
     public static String getACookie(String fromQQ) {
         User user = userDao.findByQQ(fromQQ);
         return user.getACookie();
+    }
+
+    public static String getHbrskswContent() {
+        try {
+            statusHBChanged = false;
+            Document document = Jsoup.connect("http://www.hbsrsksy.cn/").get();
+            Elements elements = document.getElementsByClass("ewb-comp-items").get(0).getAllElements();
+            StringBuilder content = new StringBuilder();
+//            for (Element element : elements) {
+//                content.append(element.text()).append("\n");
+//            }
+
+            Element element = elements.get(0);
+            Elements liElements = element.getElementsByClass("ewb-comp-item clearfix");
+            for (Element liElement : liElements) {
+                String text = liElement.text();
+                if (text.contains("2019") && text.contains("法官助理") && (text.contains("体检") || text.contains("拟录用"))) {
+                    statusHBChanged = true;
+                }
+                content.append(text).append("\n");
+            }
+            return content.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "IOException 网页读取错误";
+        }
     }
 }

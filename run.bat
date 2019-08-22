@@ -3,7 +3,7 @@ cd target
 move cn.yanglj65.alibaba-jar-with-dependencies.jar I:\Desktop\KuQ\data\app\com.sobte.cqp.jcq\app
 cd I:\Desktop\KuQ\data\app\com.sobte.cqp.jcq\app
 del cn.yanglj65.alibaba.jar
-echo "删除了一个文件"
+echo "delete successfully"
 rename cn.yanglj65.alibaba-jar-with-dependencies.jar cn.yanglj65.alibaba.jar
-echo "重命名了一个文件"
+echo "rename successfully"
 pause
